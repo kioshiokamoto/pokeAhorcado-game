@@ -1,22 +1,29 @@
-/* @tailwind base;
-@tailwind components;
-@tailwind utilities; */
-
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap");
 * {
   box-sizing: border-box;
 }
 
 body {
-  background-color: #34495e;
-  color: #fff;
-  font-family: 'poppins',Arial, Helvetica, sans-serif;
+  background-color: #FBFBFB;
+  color: #090909;
+  font-family: 'poppins', sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 80vh;
+  
+  height: 100vh;
   margin: 0;
   overflow: hidden;
+}
+
+.header{
+  background-color: #EF5350;
+  margin: 0;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #FBFBFB;
 }
 
 h1 {
@@ -24,16 +31,17 @@ h1 {
 }
 
 .game-container {
-  padding: 20px 30px;
+  
+  padding: 20px 15px;
   position: relative;
   margin: auto;
-  height: 350px;
+  height: 450px;
   width: 450px;
 }
 
 .figure-container {
   fill: transparent;
-  stroke: #fff;
+  stroke: #263238;
   stroke-width: 4px;
   stroke-linecap: round;
 }
@@ -53,7 +61,7 @@ h1 {
 }
 
 .wrong-letters-container span {
-  font-size: 24px;
+  font-size: 28px;
 }
 
 .word {
@@ -64,16 +72,32 @@ h1 {
   
   transform: translateX(-50%);
 }
+.tipo{
+  display: flex;
+  position: absolute;
+  bottom: -20%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-transform: capitalize;
+}
+.tipo p{
+  font-size: 24px;
+}
+.tipo span{
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 1px 2px rgba(0, 0, 0, 0.1);
+}
 
 .letter {
-  border-bottom: 3px solid #2980b9;
+  border-bottom: 3px solid #263238;
   display: inline-flex;
-  font-size: 30px;
+  font-size: 48px;
   align-items: center;
   justify-content: center;
-  margin: 0px 3px;
+  margin: 0px 8px;
   height: 50px;
-  width: 20px;
+  width: 25px;
 }
 
 
@@ -84,25 +108,29 @@ h1 {
   bottom: 0;
   left: 0;
   right: 0;
-  /* display: flex; */
   display: none;
   align-items: center;
   justify-content: center;
 }
 
 .popup {
-  background: #2980b9;
+  background: #263238;
+  color: #FBFBFB;
   border-radius: 5px;
   box-shadow: 0 15px 10px 3px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
   text-align: center;
 }
 
 .popup button {
   cursor: pointer;
-  background-color: #fff;
-  color: #2980b9;
+  background-color: #FBFBFB;
+  color: #263238;
   border: 0;
+  border-radius: 4px;
   margin-top: 20px;
   padding: 12px 20px;
   font-size: 16px;
@@ -115,12 +143,16 @@ h1 {
 .popup button:focus {
   outline: 0;
 }
+.popup button:hover {
+  background-color: #E0E0E0;
+}
 
 .notification-container {
   background-color: rgba(0, 0, 0, 0.3);
   border-radius: 10px 10px 0 0;
   padding: 15px 20px;
   position: absolute;
+  right: 41%;
   bottom: -50px;
   transition: transform 0.3s ease-in-out;
 }

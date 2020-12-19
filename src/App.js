@@ -17,13 +17,20 @@ function App() {
   const [mostrarNotificacion, setMostrarNotificacion] = useState(false);
 
   const [palabraSeleccionada, setPalabraSeleccionada] = useState("INICIO");
+  const [tipo,setTipo]= useState('INICIO');
+  const [urlPoke,setUrlPoke] = useState('INICIO');
 
   async function fetchPokemon() {
     const url = `https://pokeapi.co/api/v2/pokemon/${150 - Math.floor(Math.random() * 149)}`;
     const res = await fetch(url);
     const pokemon = await res.json();
-    const name = pokemon.name[0].toUpperCase() + pokemon.name.slice(1);
+    const name = (pokemon.name[0].toUpperCase() + pokemon.name.slice(1)).toLowerCase();
+    const tipoPoke =  (pokemon.types[0].type.name);
+    const urlP = pokemon.sprites.front_default;
+    setUrlPoke(urlP);
+    setTipo(tipoPoke);
     setPalabraSeleccionada(name);
+    
   }
   useEffect(() => {
     fetchPokemon();
@@ -55,7 +62,7 @@ function App() {
     };
     window.addEventListener("keydown", handleKeydown);
     return () => window.removeEventListener("keydown", handleKeydown);
-  }, [letrasCorrectas, letrasIncorrectas, jugable, palabraSeleccionada]);
+  }, [letrasCorrectas, letrasIncorrectas, jugable, palabraSeleccionada,tipo,urlPoke]);
 
   const jugarNuevamente = () => {
     setJugable(true);
@@ -74,7 +81,9 @@ function App() {
         <Palabra
           palabraSeleccionada={palabraSeleccionada}
           letrasCorrectas={letrasCorrectas}
+          tipo={tipo}
         />
+      
       </div>
       <Popup
         letrasCorrectas={letrasCorrectas}
@@ -82,6 +91,7 @@ function App() {
         palabraSeleccionada={palabraSeleccionada}
         setJugable={setJugable}
         jugarNuevamente={jugarNuevamente}
+        urlPoke={urlPoke}
       />
       <Notificacion mostrarNotificacion={mostrarNotificacion} />
     </>

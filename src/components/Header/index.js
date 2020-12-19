@@ -1,12 +1,9 @@
-import React from 'react'
-
-import * as S from "./styles";
-
+import React from "react";
 export const Header = () => {
-    return (
-        <>
-            <h1>Juego de Poke-Ahorcado</h1>
-            <h2>Encuentra el pokemon escondido - Ingresa una letra! ✌</h2>
-        </>
-    )
-}
+  return (
+    <div className="header">
+      <h1>Juego de Poke-Ahorcado</h1>
+      <h2>Encuentra el pokemon escondido - Ingresa una letra! ✌</h2>
+    </div>
+  );
+};

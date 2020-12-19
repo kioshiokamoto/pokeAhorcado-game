@@ -1,5 +1,4 @@
 import React from "react";
-import * as S from "./styles";
 
 export const Figura = ({letrasIncorrectas}) => {
   const errores = letrasIncorrectas.length;
